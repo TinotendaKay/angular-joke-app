@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Joke } from './model/joke.model';
 
 @Component({
   selector: 'app-joke',
@@ -6,14 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
-  setup: string;
-  punchline: string;
-
+  @Input() joke: Joke;
+  @Output() jokeDeleted = new EventEmitter<Joke>();
   constructor() { }
 
   ngOnInit() {
-    this.setup = 'What did the cheese say when it looked in the mirror?';
-    this.punchline = 'Halloumi (Hello Me): Tino';
+  }
+
+  deleteJoke(joke: Joke) {
+    this.jokeDeleted.emit(joke);
   }
 
 }

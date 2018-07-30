@@ -1,2 +1,8 @@
-<h1>{{setup}}</h1>
-<p>{{punchline}}</p>
+<div class="card" style="margin: 2em 0;">
+  <div class="card-body">
+  <h4 class="card-title">{{joke.setup}}</h4>
+  <p class="card-text" [hidden]="joke.hide">{{joke.punchline}}</p>
+  <a class="btn btn-primary"  (click)="joke.toggle()">Tell Me</a>
+  <a class="btn btn-secondary" style="margin-left:10px;" (click)="deleteJoke(joke)">Delete</a>
+</div>
+</div>

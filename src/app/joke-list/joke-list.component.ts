@@ -18,8 +18,12 @@ export class JokeListComponent implements OnInit {
     ];
   }
 
-  // toggle(joke) {
-  //   joke.hide = !joke.hide;
-  // }
+  addJoke(joke) {
+    this.jokes.unshift(joke);
+  }
 
+  deleteJoke(joke) {
+    const jokePosition = this.jokes.indexOf(joke);
+    this.jokes.splice(jokePosition, 1);
+  }
 }
